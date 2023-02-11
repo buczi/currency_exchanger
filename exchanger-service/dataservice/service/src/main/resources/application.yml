@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: exchange-dataservice
+  datasource:
+    url: jdbc:postgresql://localhost:5432/exchanger
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/changelog.yaml
+    enabled: true
+  main:
+    web-application-type: none
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9999/eureka

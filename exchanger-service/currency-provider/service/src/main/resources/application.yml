@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: currency-provider
+  datasource:
+    url: jdbc:postgresql://localhost:5432/exchanger
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9999/eureka
+server:
+  port: 10020

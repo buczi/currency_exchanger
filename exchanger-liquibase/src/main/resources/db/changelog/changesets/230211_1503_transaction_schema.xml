@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="20230211_1503" author="Maciej Bukalo">
+        <createTable tableName="transaction">
+            <column name="transaction_id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="transaction_id_pk"/>
+            </column>
+            <column name="last_transaction_id" type="uuid">
+                <constraints nullable="false" unique="true" foreignKeyName="fk_last_transaction" references="transaction(transaction_id)"/>
+            </column>
+            <column name="wallet_id_from" type="uuid"/>
+            <column name="wallet_id_to" type="uuid"/>
+            <column name="value" type="decimal"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="transaction"
+                                 baseColumnNames="wallet_id_from"
+                                 constraintName="transaction_from_wallet_id_fk"
+                                 referencedTableName="wallet"
+                                 referencedColumnNames="wallet_id"/>
+        <addForeignKeyConstraint baseTableName="transaction"
+                                 baseColumnNames="wallet_id_to"
+                                 constraintName="transaction_to_wallet_id_fk"
+                                 referencedTableName="wallet"
+                                 referencedColumnNames="wallet_id"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changesets/230211_1500_currency_schema.xml
+  - include:
+      file: db/changelog/changesets/230211_1501_user_schema.xml
+  - include:
+      file: db/changelog/changesets/230211_1502_wallet_schema.xml
+  - include:
+      file: db/changelog/changesets/230211_1503_transaction_schema.xml
+  - include:
+      file: db/changelog/changesets/230211_1504_load_supported_currencies.xml
+  - include:
+      file: db/changelog/changesets/230211_1505_load_initial_bank_account.xml
+  - include:
+      file: db/changelog/changesets/230211_1506_add_transaction_time.xml
+  - include:
+      file: db/changelog/changesets/230211_1507_add_precalculated_value.xml

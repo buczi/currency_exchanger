@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: exchanger-eureka-server
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    renewal-percent-threshold: 0.85
+server:
+  port: 9999
+
