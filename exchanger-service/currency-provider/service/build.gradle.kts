@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.platform.TargetPlatformVersion.NoVersion.description
 
 plugins {
     id("org.springframework.boot")
@@ -18,6 +19,7 @@ repositories {
 dependencies {
     implementation(platform(project(":exchanger-bom")))
     implementation(project(":exchanger-service:currency-provider:api"))
+    implementation(project(":exchanger-service:transaction-manager:transaction-api"))
 
     implementation(libs.spring.boot.cache)
 }

@@ -6,16 +6,11 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Pattern
 
-@Validated
 data class RegisterDTO(
-    @NotBlank
-    val name: String = "-",
-    @NotBlank
-    val surname: String = "-",
-    @Min(18)
-    val age: Int = 0,
-    @Pattern(regexp = "^\\d{11}")
-    val id: String = "-",
+    @field:NotBlank val name: String,
+    @field:NotBlank val surname: String,
+    @Min(18) val age: Int,
+    @field:Pattern(regexp = "^\\d{11}") val id: String,
     val initialValue: BigDecimal = BigDecimal.ZERO,
     val activeWallets: List<String> = listOf("PLN")
 )
